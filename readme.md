@@ -92,7 +92,7 @@ GEMINI_API_KEY=your_api_key_here
 本次作業的學習心得。
 
 
----葉政毅:### 1. 核心大腦：Gemini 2.5 Flash + LangChain
+> 葉政毅:### 1. 核心大腦：Gemini 2.5 Flash + LangChain
 我們選擇了最新的 `gemini-2.5-flash` 作為語言模型，並透過 `langchain-google-genai` 進行串接。LangChain 成功地將零散的對話封裝成易於管理的 `HumanMessage` 與 `AIMessage`，讓機器人不僅能單次問答，更具備了「記憶」整個上下文的對話能力。
 
 ### 2. 環境變數的踩坑與防護
