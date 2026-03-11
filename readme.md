@@ -58,7 +58,23 @@ GEMINI_API_KEY=your_api_key_here
 
 ## 學習心得
 
-> 請簡要寫出本次作業的學習心得。
+> 吳宸宇# 一、LangChain 框架整合
+這次實作讓我理解了 LangChain 的模組化設計。透過 `ChatGoogleGenerativeAI` 串接 Gemini 模型，搭配 `HumanMessage`、`AIMessage`、`SystemMessage` 等訊息物件來管理對話流程，整體架構清晰且易於擴充。特別是多模態的處理方式——將圖片以 Base64 編碼嵌入 `HumanMessage` 的 content list 中，讓文字與圖片能在同一個訊息中傳遞給模型，這種設計模式值得學習。
+### 二、多模態檔案處理
+學會了三種不同檔案類型的處理策略：
+- **圖片**：Base64 編碼後以 `image_url` 格式直接傳給 Gemini 視覺模型
+- **PDF**：透過 `PyPDFLoader` 逐頁提取文字，再以文本方式傳入
+- **TXT**：直接讀取內容，並考慮編碼問題（UTF-8 優先、Big5 備援）
+這讓我體會到不同資料型態需要不同的前處理方式，而好的架構能讓這些處理邏輯各自獨立、互不干擾。
+### 三、Chainlit Web GUI 開發
+從 CLI 轉換到 Web GUI，Chainlit 的事件驅動模型（`@cl.on_chat_start`、`@cl.on_message`、`@cl.on_chat_end`）讓整合過程非常直覺。最有收穫的是學會了**串流回應**（`llm.astream()` + `stream_token()`），讓使用者體驗從「等待完整回應」提升到「即時看到文字逐步產生」，這在實際應用中差異很大。
+另外，透過 [app.py](cci:7://file:///c:/Users/User/Desktop/chatbot/app.py:0:0-0:0) 直接 import [chatbot.py](cci:7://file:///c:/Users/User/Desktop/chatbot/chatbot.py:0:0-0:0) 的函式，實現了**零重複程式碼**的雙介面架構，這是良好的模組化設計實踐。
+### 四、Git 版控與環境管理
+實際操作中遇到了 Git 路徑未加入 PATH、使用者身份未設定等環境問題，也學到了 [.gitignore](cci:7://file:///c:/Users/User/Desktop/chatbot/.gitignore:0:0-0:0) 的重要性——確保 API Key（[.env](cci:7://file:///c:/Users/User/Desktop/chatbot/.env:0:0-0:0)）、虛擬環境（`venv/`）和自動生成的檔案不會被提交到版本庫中。
+### 五、總結
+這個專案完整走過了從**核心邏輯開發 → 多模態擴充 → Web GUI 包裝 → 版控上線**的全流程，是一次理論與實務結合的寶貴經驗。
+本次作業的學習心得。
+
 
 ---葉政毅:### 1. 核心大腦：Gemini 2.5 Flash + LangChain
 我們選擇了最新的 `gemini-2.5-flash` 作為語言模型，並透過 `langchain-google-genai` 進行串接。LangChain 成功地將零散的對話封裝成易於管理的 `HumanMessage` 與 `AIMessage`，讓機器人不僅能單次問答，更具備了「記憶」整個上下文的對話能力。
