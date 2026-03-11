@@ -49,8 +49,10 @@ GEMINI_API_KEY=your_api_key_here
 
 ### 問題 2
 
-問題：
-解法：
+問題： git commit 時出現 Author identity unknown 錯誤 — Git 無法自動偵測使用者身份，拒絕執行 commit。
+
+解法： 使用 git config --global 設定使用者名稱與 Email
+
 
 ---
 
