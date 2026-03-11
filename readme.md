@@ -58,7 +58,7 @@ GEMINI_API_KEY=your_api_key_here
 
 ## 學習心得
 
-> 吳宸宇# 一、LangChain 框架整合
+吳宸宇一、LangChain 框架整合
 這次實作讓我理解了 LangChain 的模組化設計。透過 `ChatGoogleGenerativeAI` 串接 Gemini 模型，搭配 `HumanMessage`、`AIMessage`、`SystemMessage` 等訊息物件來管理對話流程，整體架構清晰且易於擴充。特別是多模態的處理方式——將圖片以 Base64 編碼嵌入 `HumanMessage` 的 content list 中，讓文字與圖片能在同一個訊息中傳遞給模型，這種設計模式值得學習。
 ### 二、多模態檔案處理
 學會了三種不同檔案類型的處理策略：
