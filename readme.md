@@ -2,7 +2,7 @@
 
 ## 小組：第10組
 
-### 組員：
+### 組員： 
 
 * 吳宸宇
 * 林富閎
@@ -63,3 +63,4 @@ GEMINI_API_KEY=your_api_key_here
 
 請填入小組各組員 GitHub repository 網址。
 https://github.com/james09021030-sudo/chatbot
+https://github.com/Eric-wu0805/chatbot
