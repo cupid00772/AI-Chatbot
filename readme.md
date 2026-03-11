@@ -92,24 +92,20 @@ GEMINI_API_KEY=your_api_key_here
 本次作業的學習心得。
 
 
-> 葉政毅:### 1. 核心大腦：Gemini 2.5 Flash + LangChain
+> 葉政毅:
+### 1. 核心大腦：Gemini 2.5 Flash + LangChain
 我們選擇了最新的 `gemini-2.5-flash` 作為語言模型，並透過 `langchain-google-genai` 進行串接。LangChain 成功地將零散的對話封裝成易於管理的 `HumanMessage` 與 `AIMessage`，讓機器人不僅能單次問答，更具備了「記憶」整個上下文的對話能力。
-
 ### 2. 環境變數的踩坑與防護
 在串接 API 的過程中，我們經歷了一段小小的環境變數名稱不一致（`GEMINI_API_KEY` 與 `GOOGLE_API_KEY`）的除錯過程。這提醒了我們，在建構這類依賴外部金鑰的應用時，同時支援多種慣用的變數名稱能大幅提升容錯率，並利用 `.env` 加上 `.gitignore` 來確保機敏資料不會不小心被上傳到公開的 GitHub。
-
 ### 3. 多模態 (Multimodal) 的賦能
 有別於傳統只能輸入文字的腳本，我們引入了 `langchain-community` 的 `PyPDFLoader` 以及 Base64 轉換技術，讓專案具備了「讀圖」與「讀文件」的強大能力。這使得 AI 不再侷限於程式碼的世界，而能真正成為一個日常助手。
-
 ### 4. 從黑窗走到精美 UI：Chainlit
 最後且最關鍵的一步，我們拋棄了傳統的終端機 `chat.py` 介面，轉而擁抱專為 AI 設計的 Web 框架 —— **Chainlit**。
 這讓我們短短用一個 `app.py` 就實作出了：
 - 現代化的對話氣泡與上傳檔案介面
 - 即時打字機效果 (Streaming)
 - 透過 `cl.user_session` 將繁雜的對話紀錄與 JSON 儲存功能無縫整合在背景處理
-
 ## 💡 未來可期的優化方向
-
 這個專案目前已經擁有非常完整的雛形，若未來想進一步擴充，可以考慮：
 1. **RAG (檢索增強生成)**：目前上傳的 PDF 是一股腦全塞給模型，若後續檔案過大（超過 Token 限制），可引入向量資料庫做切片檢索。
 2. **工具調用 (Tool Calling)**：讓 Gemini 不只是聊天，還能幫忙查天氣、打 API 去抓取即時資訊。
