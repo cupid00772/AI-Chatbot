@@ -1,0 +1,7 @@
+langchain
+langchain-google-genai
+langchain-community
+python-dotenv
+SQLAlchemy
+pypdf
+gradio

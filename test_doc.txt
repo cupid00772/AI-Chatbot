@@ -1,0 +1,2 @@
+This is a test file for the Langchain + Gemini chatbot.
+It tells a story about a little robot that learned how to read files.
