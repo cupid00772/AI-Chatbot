@@ -43,6 +43,7 @@ GEMINI_API_KEY=your_api_key_here
 ### 問題 1
 
 問題： git 指令無法辨識 — Git 已安裝在 C:\Program Files\Git，但其路徑未加入系統 PATH，導致 PowerShell 找不到 git 指令。
+
 解法： 將 C:\Program Files\Git\cmd 加入使用者環境變數 PATH：[Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";C:\Program Files\Git\cmd", "User")
 
 
