@@ -122,7 +122,7 @@ GEMINI_API_KEY=your_api_key_here
 ## GitHub 專案連結
 
 請填入小組各組員 GitHub repository 網址。
-https://github.com/james09021030-sudo/chatbot
-https://github.com/Eric-wu0805/chatbot
-https://github.com/cupid00772/AI-Chatbot.git
-https://github.com/Eason92k/AI-agent.git
+https://github.com/james09021030-sudo/chatbot  
+https://github.com/Eric-wu0805/chatbot  
+https://github.com/cupid00772/AI-Chatbot.git  
+https://github.com/Eason92k/AI-agent.git  
